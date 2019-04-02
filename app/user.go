@@ -2019,7 +2019,7 @@ func (a *App) UserCanSeeOtherUser(userId string, otherUserId string) (bool, *mod
 	}
 
 	if len(restrictions.Teams) > 0 {
-		result, err := a.userBelongsToTeams(userId, restrictions.Teams)
+		result, err := a.userBelongsToTeams(otherUserId, restrictions.Teams)
 		if err != nil {
 			return false, err
 		}
@@ -2029,7 +2029,7 @@ func (a *App) UserCanSeeOtherUser(userId string, otherUserId string) (bool, *mod
 	}
 
 	if len(restrictions.Channels) > 0 {
-		result, err := a.userBelongsToChannels(userId, restrictions.Channels)
+		result, err := a.userBelongsToChannels(otherUserId, restrictions.Channels)
 		if err != nil {
 			return false, err
 		}
